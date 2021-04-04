@@ -1,8 +1,8 @@
 import * as util from '../util';
 
-class Debug {
+class CommandDebug {
   constructor() {
-    this.name = 'Debug';
+    this.name = 'Command Debug';
     this.triggers = {
       'command': [{
         'run': this.run,
@@ -21,4 +21,4 @@ class Debug {
   }
 }
 
-module.exports = Debug;
+module.exports = CommandDebug;

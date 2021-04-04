@@ -1,5 +1,8 @@
+import Config from './config';
+
 const modules = [
-  'debug',
+  'commandDebug',
+  'commandConfig',
   'necronHealthDisplay',
   'necronFrenzyNotifier'
 ];
@@ -18,14 +21,26 @@ modules.forEach((moduleName, i) => {
         }
 
         register(trigger, (...args) => {
+          if (!Config[moduleName]) {
+            return;
+          }
+
           run(...args);
         }).setCriteria(func.criteria).setParameter('contains');
       } if (trigger === 'command') {
         register(trigger, (...args) => {
+          if (!Config[moduleName]) {
+            return;
+          }
+
           run(...args);
         }).setName(func.name)
       } else {
         register(trigger, (...args) => {
+          if (!Config[moduleName]) {
+            return;
+          }
+
           run(...args);
         });
       }
